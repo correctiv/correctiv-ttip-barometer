@@ -27,6 +27,7 @@ class Chapter(models.Model):
                             verbose_name=_('image'))
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
     body = models.TextField(blank=True)
+    published = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('order',)
