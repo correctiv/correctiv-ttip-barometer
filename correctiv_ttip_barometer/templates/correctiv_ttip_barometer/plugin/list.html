@@ -1,3 +1,14 @@
+{% load static sekizai_tags %}
+
 {% for object in object_list %}
   <h3>{{ object.title }}</h3>
+
+  <div class="gauge">
+    <div class="gauge__meter gauge__meter--15"></div>
+  </div>
 {% endfor %}
+
+{% addtoblock "css" %}
+  <link rel="stylesheet" href="{% static "css/barometer.css" %}" type="text/css" />
+{% endaddtoblock %}
+

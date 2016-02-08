@@ -1,0 +1,183 @@
+@charset "utf-8";
+
+.gauge {
+  padding-bottom: 50%;
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.gauge:before {
+  content: '';
+  position: absolute;
+  height: 200%;
+  width: 100%;
+  border-radius: 50%;
+  background-color: #cccccc;
+}
+
+.gauge:after {
+  content: '';
+  background: #eeeeee;
+  position: absolute;
+  top: 60%;
+  right: 30%;
+  bottom: -40%;
+  left: 30%;
+  border-radius: 50%;
+}
+
+.gauge__meter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+
+.gauge__meter:before {
+  content: '';
+  position: absolute;
+  height: 200%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.gauge-list {
+  margin: 22px 0 44px;
+  padding: 0;
+}
+
+.gauge-item,
+.gauge-item--disabled {
+  background: #eeeeee;
+  overflow: hidden;
+  margin: 2px 0 0 0;
+  padding: 22px;
+  list-style: none;
+  color: #8d8d8d;
+}
+
+.gauge-item:last-of-type {
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 15px;
+}
+
+.gauge-item--disabled {
+  cursor: default;
+  opacity: .3;
+}
+
+.gauge-item__link {
+  display: block;
+  margin: -22px;
+  padding: 22px;
+  color: #8d8d8d;
+  background: #eeeeee;
+  transition: background 300ms;
+}
+
+.gauge-item__link:hover,
+.gauge-item__link:focus,
+.gauge-item__link:active {
+  text-decoration: none;
+  background: #f3f3f3;
+  color: #8d8d8d;
+}
+
+.gauge-item__thumbnail {
+  width: 66%;
+  max-width: 180px;
+  margin-bottom: 22px;
+}
+
+.gauge-item__thumbnail {
+  width: 66%;
+  max-width: 180px;
+  margin-bottom: 22px;
+}
+
+.gauge-item__thumbnail--inline {
+  float: left;
+  width: 100px;
+  margin-right: 22px;
+}
+
+.gauge-item__title {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.gauge-item__description {
+  margin: 0;
+  padding: 0;
+}
+
+.gauge-item__content--inline {
+  margin-left: 120px;
+}
+
+.gauge__meter--5 {
+  -webkit-transform: rotate(0.525turn);
+  transform: rotate(0.525turn);
+}
+
+.gauge__meter--15 {
+    -webkit-transform: rotate(0.575turn);
+    transform: rotate(0.575turn);
+}
+
+.gauge__meter--30 {
+    -webkit-transform: rotate(0.65turn);
+    transform: rotate(0.65turn);
+}
+
+.gauge__meter--60 {
+  -webkit-transform: rotate(0.8turn);
+  transform: rotate(0.8turn);
+}
+
+.gauge__meter--75 {
+  -webkit-transform: rotate(0.875turn);
+  transform: rotate(0.875turn);
+}
+
+.gauge__meter--5:before {
+  background-color: #8d8d8d;
+}
+
+.gauge__meter--15:before {
+  background-color: #de2f31;
+}
+
+.gauge__meter--30:before {
+  background-color: #de5c2f;
+}
+
+.gauge__meter--60:before {
+  background-color: #e5a147;
+}
+
+.gauge__meter--75:before {
+  background-color: #41b565;
+}
+
+.gauge-item__status--15 {
+  color: #de2f31;
+}
+
+.gauge-item__status--30 {
+  color: #de5c2f;
+}
+
+.gauge-item__status--60 {
+  color: #e5a147;
+}
+
+.gauge-item__status--75 {
+  color: #41b565;
+}
