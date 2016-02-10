@@ -45,11 +45,6 @@
   border-radius: 50%;
 }
 
-.gauge-list {
-  margin: 22px 0 44px;
-  padding: 0;
-}
-
 .gauge-item,
 .gauge-item--disabled {
   background: #eeeeee;
@@ -58,6 +53,11 @@
   padding: 22px;
   list-style: none;
   color: #8d8d8d;
+}
+
+.gauge-item-list {
+  margin: 22px 0 44px;
+  padding: 0;
 }
 
 .gauge-item:last-of-type {

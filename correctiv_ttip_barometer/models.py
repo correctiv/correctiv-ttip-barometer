@@ -39,3 +39,6 @@ class Chapter(models.Model):
     def get_absolute_url(self):
         return ('ttip_barometer:ttip-chapter-detail', (), {
             'slug': self.slug})
+
+    def get_status_text(self):
+        return dict(self.STATUS_CHOICES)[self.status]

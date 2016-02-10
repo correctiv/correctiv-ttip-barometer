@@ -1,14 +1,30 @@
 {% load static sekizai_tags %}
 
+<ul class="gauge-item-list">
 {% for object in object_list %}
-  <h3>{{ object.title }}</h3>
+  <li class="gauge-item">
+    <a href="{{ object.get_absolute_url }}" class="gauge-item__link">
 
-  <div class="gauge">
-    <div class="gauge__meter gauge__meter--15"></div>
-  </div>
+      <div class="gauge-item__thumbnail--inline">
+        <div class="gauge">
+          <div class="gauge__meter gauge__meter--{{ object.status }}"></div>
+        </div>
+      </div>
+
+      <div class="gauge-item__content--inline">
+        <h3 class="gauge-item__title">{{ object.title }}</h3>
+        <p class="gauge-item__description">
+          Status:
+          <strong class="gauge-item__status--{{ object.status }}">
+            {{ object.get_status_text }}
+          </strong>
+        </p>
+      </div>
+    </a>
+  </li>
 {% endfor %}
+</ul>
 
 {% addtoblock "css" %}
   <link rel="stylesheet" href="{% static "css/barometer.css" %}" type="text/css" />
 {% endaddtoblock %}
-
