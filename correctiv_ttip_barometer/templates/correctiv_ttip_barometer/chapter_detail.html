@@ -1,6 +1,6 @@
 {% extends "correctiv_ttip_barometer/base.html" %}
 
-{% load static sekizai_tags markdown_deux_tags %}
+{% load static sekizai_tags markdown_deux_tags thumbnail %}
 
 {% block main %}
 
@@ -43,6 +43,22 @@
         {{ object.teaser }}
       </div>
 
+      {% if object.image %}
+        <figure class="figure -full-width">
+          <div class="figure__container">
+
+            <picture>
+              <source
+                media="(min-width: {{ LESS_VARS.screen_md }})"
+                srcset="{% thumbnail object.image 940x0 subject_location=object.image.subject_location %}">
+                <img class="figure__image" src="{% thumbnail object.image 768x0 crop=scale subject_location=object.image.subject_location %}" alt="{{ object.alt }}" />
+            </picture>
+
+            <figcaption class="figure__caption"></figcaption>
+
+          </div>
+        </figure>
+      {% endif %}
 
       {{ object.body|markdown }}
 
