@@ -30,7 +30,7 @@
     </p>
     </div>
 
-    <p>Letzte Aktualisierung: 19.10.2015</p>
+    <p>Letzte Aktualisierung: {{ object.updated }}</p>
 
     </aside>
 
@@ -40,11 +40,9 @@
       </header>
 
       <div>
-      {{ object.teaser }}
+        {{ object.teaser }}
       </div>
 
-      <figure class="figure -full-width">
-        <div class="figure__container">
 
       {{ object.body|markdown }}
 
