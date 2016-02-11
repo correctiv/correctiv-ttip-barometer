@@ -1,5 +1,9 @@
 {% load static sekizai_tags %}
 
+{% addtoblock "css" %}
+  <link rel="stylesheet" href="{% static "css/barometer.css" %}" type="text/css" />
+{% endaddtoblock %}
+
 <ul class="gauge-item-list">
 {% for object in object_list %}
   <li class="gauge-item">
@@ -24,7 +28,3 @@
   </li>
 {% endfor %}
 </ul>
-
-{% addtoblock "css" %}
-  <link rel="stylesheet" href="{% static "css/barometer.css" %}" type="text/css" />
-{% endaddtoblock %}

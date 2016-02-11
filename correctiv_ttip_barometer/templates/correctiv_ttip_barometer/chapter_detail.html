@@ -1,6 +1,56 @@
 {% extends "correctiv_ttip_barometer/base.html" %}
 
+{% load static sekizai_tags markdown_deux_tags %}
 
 {% block main %}
-  {{ object.title }}
+
+{% addtoblock "css" %}
+  <link rel="stylesheet" href="{% static "css/barometer.css" %}" type="text/css" />
+{% endaddtoblock %}
+
+<div class="page__container">
+  <div class="page__row">
+
+    <aside class="page__sidebar">
+    <div class="gauge-item">
+    <h3 class="gauge-item__title">{{ object.title }}</h3>
+
+    <div class="gauge-item__thumbnail--inline">
+      <div class="gauge">
+        <div class="gauge__meter gauge__meter--{{ object.status }}"></div>
+      </div>
+    </div>
+
+    <div class="gauge-item__content">
+    <p class="gauge-item__description">
+      Status:
+      <strong class="gauge-item__status--{{ object.status }}">
+        {{ object.get_status_text }}
+      </strong>
+    </p>
+    </div>
+
+    <p>Letzte Aktualisierung: 19.10.2015</p>
+
+    </aside>
+
+    <section class="page__section">
+      <header class="page__section-header -primary">
+        <h3 class="page__section-headline">{{ object.title }}</h3>
+      </header>
+
+      <div>
+      {{ object.teaser }}
+      </div>
+
+      <figure class="figure -full-width">
+        <div class="figure__container">
+
+      {{ object.body|markdown }}
+
+    </section>
+
+
+  </div>
+</div>
 {% endblock main %}
