@@ -18,5 +18,5 @@ class TTIPBarometerListPlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super(TTIPBarometerListPlugin, self)\
             .render(context, instance, placeholder)
-        context['object_list'] = Chapter.objects.filter(published=True)
+        context['object_list'] = Chapter.objects.all()
         return context

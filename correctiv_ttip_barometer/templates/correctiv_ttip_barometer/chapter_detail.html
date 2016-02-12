@@ -12,25 +12,31 @@
   <div class="page__row">
 
     <aside class="page__sidebar">
-    <div class="gauge-item">
-    <h3 class="gauge-item__title">{{ object.title }}</h3>
+      <div class="gauge-item">
 
-    <div class="gauge-item__thumbnail--inline">
-      <div class="gauge">
-        <div class="gauge__meter gauge__meter--{{ object.status }}"></div>
+        <div class="gauge-item__thumbnail">
+          <div class="gauge">
+            <div class="gauge__meter gauge__meter--{{ object.status }}"></div>
+          </div>
+        </div>
+
+        <div class="gauge-item__content">
+          <p class="gauge-item__description">
+            <strong class="gauge-item__status--{{ object.status }}">
+              {{ object.get_status_text }}
+            </strong>
+          </p>
+        </div>
+
+        <span class="page__meta">
+          Letzte Aktualisierung:
+          <time datetime="{{ object.updated|date:"c" }}">
+            {{ object.updated|date:"DATE_FORMAT" }}
+          </time>
+        </span>
+
       </div>
-    </div>
 
-    <div class="gauge-item__content">
-    <p class="gauge-item__description">
-      Status:
-      <strong class="gauge-item__status--{{ object.status }}">
-        {{ object.get_status_text }}
-      </strong>
-    </p>
-    </div>
-
-    <p>Letzte Aktualisierung: {{ object.updated }}</p>
 
     </aside>
 
@@ -52,8 +58,6 @@
                 <img class="figure__image" src="{% thumbnail object.image 768x0 crop=scale subject_location=object.image.subject_location %}" alt="{{ object.alt }}" />
             </picture>
 
-            <figcaption class="figure__caption"></figcaption>
-
           </div>
         </figure>
       {% endif %}
@@ -61,7 +65,6 @@
       {{ object.body|markdown }}
 
     </section>
-
 
   </div>
 </div>

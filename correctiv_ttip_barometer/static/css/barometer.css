@@ -166,6 +166,11 @@
   background-color: #41b565;
 }
 
+.gauge-item__status--0 {
+  font-weight: normal;
+  font-style: italic;
+}
+
 .gauge-item__status--15 {
   color: #de2f31;
 }

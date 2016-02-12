@@ -37,8 +37,16 @@ class Chapter(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('ttip_barometer:ttip-chapter-detail', (), {
-            'slug': self.slug})
+        return ('ttip_barometer:ttip-chapter-detail', (), {'slug': self.slug})
 
     def get_status_text(self):
-        return dict(self.STATUS_CHOICES)[self.status]
+        if self.published:
+            return dict(self.STATUS_CHOICES)[self.status]
+        else:
+            return _("No barometer yet")
+
+    def get_status_value(self):
+        if self.published:
+            return self.status
+        else:
+            return 0
