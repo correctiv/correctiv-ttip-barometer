@@ -1,0 +1,27 @@
+<li class="gauge-item{% if not object.published %}--disabled{% endif %}">
+
+{% if object.published %}
+  <a href="{{ object.get_absolute_url }}" class="gauge-item__link">
+{% endif %}
+
+    <div class="gauge-item__thumbnail--inline">
+      <div class="gauge">
+        <div class="gauge__meter gauge__meter--{{ object.get_status_value }}"></div>
+      </div>
+    </div>
+
+    <div class="gauge-item__content--inline">
+      <h3 class="gauge-item__title">{{ object.title }}</h3>
+      <p class="gauge-item__description">
+        Status:
+        <strong class="gauge-item__status--{{ object.get_status_value }}">
+          {{ object.get_status_text }}
+        </strong>
+      </p>
+    </div>
+
+{% if object.published %}
+  </a>
+{% endif %}
+
+</li>

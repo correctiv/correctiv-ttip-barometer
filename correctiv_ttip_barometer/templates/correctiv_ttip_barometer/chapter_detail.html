@@ -1,17 +1,16 @@
 {% extends "correctiv_ttip_barometer/base.html" %}
 
-{% load static sekizai_tags markdown_deux_tags thumbnail %}
+{% load i18n markdown_deux_tags thumbnail cms_tags %}
 
-{% block main %}
+{% block title %}{{ object.title }} - {% trans "TTIP – State of Play" %}{% endblock %}
 
-{% addtoblock "css" %}
-  <link rel="stylesheet" href="{% static "css/barometer.css" %}" type="text/css" />
-{% endaddtoblock %}
+{% block barometer_main %}
 
 <div class="page__container">
   <div class="page__row">
 
     <aside class="page__sidebar">
+      <h3>{% trans "TTIP – State of Play" %}</h3>
       <div class="gauge-item">
 
         <div class="gauge-item__thumbnail">
@@ -29,7 +28,7 @@
         </div>
 
         <span class="page__meta">
-          Letzte Aktualisierung:
+          {% trans "Last update:" %}
           <time datetime="{{ object.updated|date:"c" }}">
             {{ object.updated|date:"DATE_FORMAT" }}
           </time>
@@ -37,6 +36,13 @@
 
       </div>
 
+      {% static_placeholder "ttip_barometer-chapter_sidebar" %}
+
+      <ul class="gauge-item-list">
+      {% for obj in object_list %}
+        {% include "correctiv_ttip_barometer/_chapter_item.html" with object=obj %}
+      {% endfor %}
+      </ul>
 
     </aside>
 
@@ -45,7 +51,9 @@
         <h3 class="page__section-headline">{{ object.title }}</h3>
       </header>
 
-      <div class="page__teaser">{{ object.teaser }}</div>
+      <div class="page__teaser">
+        <p>{{ object.teaser }}</p>
+      </div>
 
       {% if object.image %}
         <figure class="figure -full-width">
@@ -64,8 +72,20 @@
 
       {{ object.body|markdown }}
 
+      {% with previous=object.get_previous %}
+        {% if previous %}
+          <a href="{{ previous.get_absolute_url }}">{% blocktrans with title=previous.title %}« Previous chapter “{{ title }}”{% endblocktrans %}</a>
+        {% endif %}
+      {% endwith %}
+
+      {% with next=object.get_next %}
+        {% if next %}
+          <a href="{{ next.get_absolute_url }}">{% blocktrans with title=next.title %}Next chapter “{{ title }}” »{% endblocktrans %}</a>
+        {% endif %}
+      {% endwith %}
+
     </section>
 
   </div>
 </div>
-{% endblock main %}
+{% endblock barometer_main %}

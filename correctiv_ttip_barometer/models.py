@@ -50,3 +50,15 @@ class Chapter(models.Model):
             return self.status
         else:
             return 0
+
+    def get_next(self):
+        try:
+            return Chapter.objects.filter(order__gt=self.order)[0]
+        except IndexError:
+            return None
+
+    def get_previous(self):
+        try:
+            return Chapter.objects.filter(order__lt=self.order)[0]
+        except IndexError:
+            return None
