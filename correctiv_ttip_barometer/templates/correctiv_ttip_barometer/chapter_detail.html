@@ -78,23 +78,15 @@
 
       {{ object.body|markdown }}
 
-      {% with previous=object.get_previous %}
-        {% if previous %}
-          <p class="text-left">
-            <a href="{{ previous.get_absolute_url }}">{% blocktrans with title=previous.title %}« Previous chapter “{{ title }}”{% endblocktrans %}</a>
-          </p>
-
-          {% include "correctiv_ttip_barometer/_chapter_item.html" with object=previous %}
-
-        {% endif %}
-      {% endwith %}
-
       {% with next=object.get_next %}
         {% if next %}
-          <p class="text-right">
-            <a href="{{ next.get_absolute_url }}">{% blocktrans with title=next.title %}Next chapter “{{ title }}” »{% endblocktrans %}</a>
-          </p>
-
+          <header class="page__section-header -secondary">
+            <h3 class="page__section-headline">
+              <a href="{{ next.get_absolute_url }}">
+                {% trans "Next chapter" %}
+              </a>
+            </h3>
+          </header>
 
           {% include "correctiv_ttip_barometer/_chapter_item.html" with object=next %}
 
