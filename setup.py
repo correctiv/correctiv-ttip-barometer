@@ -34,6 +34,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'Django',
+        'django-pagedown',
     ],
     include_package_data=True,
     classifiers=[
