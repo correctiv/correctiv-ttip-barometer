@@ -36,14 +36,19 @@
 
       </div>
 
-      {% static_placeholder "ttip_barometer-chapter_sidebar" %}
-
       <h4>{% trans "Other Chapters" %}</h4>
-      <ul class="gauge-item-list">
+      <ul class="nav-sidebar">
       {% for obj in object_list %}
-        {% include "correctiv_ttip_barometer/_chapter_item.html" with object=obj %}
+        <li class="nav-sidebar__child">
+          <a class="nav-sidebar__link"
+            href="{{ obj.get_absolute_url }}">
+            {{ obj.title }}
+          </a>
+        </li>
       {% endfor %}
       </ul>
+
+      {% static_placeholder "ttip_barometer-chapter_sidebar" %}
 
     </aside>
 
@@ -78,6 +83,9 @@
           <p class="text-left">
             <a href="{{ previous.get_absolute_url }}">{% blocktrans with title=previous.title %}« Previous chapter “{{ title }}”{% endblocktrans %}</a>
           </p>
+
+          {% include "correctiv_ttip_barometer/_chapter_item.html" with object=previous %}
+
         {% endif %}
       {% endwith %}
 
@@ -86,6 +94,10 @@
           <p class="text-right">
             <a href="{{ next.get_absolute_url }}">{% blocktrans with title=next.title %}Next chapter “{{ title }}” »{% endblocktrans %}</a>
           </p>
+
+
+          {% include "correctiv_ttip_barometer/_chapter_item.html" with object=next %}
+
         {% endif %}
       {% endwith %}
 
