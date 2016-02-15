@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-15 16:35+0100\n"
-"PO-Revision-Date: 2016-02-15 16:36+0100\n"
+"POT-Creation-Date: 2016-02-15 16:48+0100\n"
+"PO-Revision-Date: 2016-02-15 16:48+0100\n"
 "Last-Translator: Stefan Wehrmeyer <stefan.wehrmeyer@okfn.org>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -58,20 +58,25 @@ msgstr "Bild"
 msgid "No barometer yet"
 msgstr "Noch kein Barometer"
 
-#: templates/correctiv_ttip_barometer/chapter_detail.html:11
+#: templates/correctiv_ttip_barometer/chapter_detail.html:5
+#: templates/correctiv_ttip_barometer/chapter_detail.html:13
 msgid "TTIP – State of Play"
 msgstr "TTIP-Verhandlungs&shy;barometer"
 
-#: templates/correctiv_ttip_barometer/chapter_detail.html:29
+#: templates/correctiv_ttip_barometer/chapter_detail.html:31
 msgid "Last update:"
 msgstr "Letzte Aktualisierung:"
 
-#: templates/correctiv_ttip_barometer/chapter_detail.html:75
+#: templates/correctiv_ttip_barometer/chapter_detail.html:41
+msgid "Other Chapters"
+msgstr "Weitere Kapitel"
+
+#: templates/correctiv_ttip_barometer/chapter_detail.html:79
 #, python-format
 msgid "« Previous chapter “%(title)s”"
 msgstr "« Vorheriges Kapitel „%(title)s“"
 
-#: templates/correctiv_ttip_barometer/chapter_detail.html:81
+#: templates/correctiv_ttip_barometer/chapter_detail.html:87
 #, python-format
 msgid "Next chapter “%(title)s” »"
 msgstr "Nächstes Kapitel „%(title)s“ »"
