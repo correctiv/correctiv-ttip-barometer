@@ -9,5 +9,6 @@ class ChapterDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ChapterDetailView, self).get_context_data(**kwargs)
-        context['object_list'] = Chapter.objects.exclude(id=self.object.pk)
+        publishedObjects = Chapter.objects.filter(published=True)
+        context['object_list'] = publishedObjects.exclude(id=self.object.pk)
         return context
