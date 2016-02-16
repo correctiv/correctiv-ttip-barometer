@@ -87,9 +87,13 @@
           {% if next %}
             <header class="page__section-header -secondary">
               <h3 class="page__section-headline">
+                {% if next.published %}
                 <a href="{{ next.get_absolute_url }}">
+                {% endif %}
                   {% trans "Next chapter" %}
+                {% if next.published %}
                 </a>
+                {% endif %}
               </h3>
             </header>
 
