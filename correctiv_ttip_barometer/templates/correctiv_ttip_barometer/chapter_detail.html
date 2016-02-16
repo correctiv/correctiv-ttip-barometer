@@ -9,92 +9,97 @@
 <div class="page__container">
   <div class="page__row">
 
-    <aside class="page__sidebar">
-      <h3>{% trans "TTIP – State of Play" %}</h3>
-      <div class="gauge-item">
-
-        <div class="gauge-item__thumbnail">
-          <div class="gauge">
-            <div class="gauge__meter gauge__meter--{{ object.status }}"></div>
-          </div>
-        </div>
-
-        <div class="gauge-item__content">
-          <p class="gauge-item__description">
-            <strong class="gauge-item__status--{{ object.status }}">
-              {{ object.get_status_text }}
-            </strong>
-          </p>
-        </div>
-
-        <span class="page__meta">
-          {% trans "Last update:" %}
-          <time datetime="{{ object.updated|date:"c" }}">
-            {{ object.updated|date:"DATE_FORMAT" }}
-          </time>
-        </span>
-
-      </div>
-
-      <h4>{% trans "Other Chapters" %}</h4>
-      <ul class="nav-sidebar">
-      {% for obj in object_list %}
-        <li class="nav-sidebar__child">
-          <a class="nav-sidebar__link"
-            href="{{ obj.get_absolute_url }}">
-            {{ obj.title }}
-          </a>
-        </li>
-      {% endfor %}
-      </ul>
-
-      {% static_placeholder "ttip_barometer-chapter_sidebar" %}
-
-    </aside>
-
-    <section class="page__section">
+    <div class="page__section-full">
+      <h2 class="category-tag">{% trans "TTIP – State of Play" %}</h2>
       <header class="page__section-header -primary">
         <h3 class="page__section-headline">{{ object.title }}</h3>
       </header>
-
       <div class="page__teaser">
         <p>{{ object.teaser }}</p>
       </div>
+    </div>
 
-      {% if object.image %}
-        <figure class="figure -full-width">
-          <div class="figure__container">
+    <div class="page__row">
 
-            <picture>
-              <source
-                media="(min-width: {{ LESS_VARS.screen_md }})"
-                srcset="{% thumbnail object.image 940x0 subject_location=object.image.subject_location %}">
-                <img class="figure__image" src="{% thumbnail object.image 768x0 crop=scale subject_location=object.image.subject_location %}" alt="{{ object.alt }}" />
-            </picture>
+      <aside class="page__sidebar">
 
+        <div class="gauge-item">
+
+          <div class="gauge-item__thumbnail">
+            <div class="gauge">
+              <div class="gauge__meter gauge__meter--{{ object.status }}"></div>
+            </div>
           </div>
-        </figure>
-      {% endif %}
 
-      {{ object.body|markdown }}
+          <div class="gauge-item__content">
+            <p class="gauge-item__description">
+              <strong class="gauge-item__status--{{ object.status }}">
+                {{ object.get_status_text }}
+              </strong>
+            </p>
+          </div>
 
-      {% with next=object.get_next %}
-        {% if next %}
-          <header class="page__section-header -secondary">
-            <h3 class="page__section-headline">
-              <a href="{{ next.get_absolute_url }}">
-                {% trans "Next chapter" %}
-              </a>
-            </h3>
-          </header>
+          <span class="page__meta">
+            {% trans "Last update:" %}
+            <time datetime="{{ object.updated|date:"c" }}">
+              {{ object.updated|date:"DATE_FORMAT" }}
+            </time>
+          </span>
 
-          {% include "correctiv_ttip_barometer/_chapter_item.html" with object=next %}
+        </div>
 
+        <h4>{% trans "Other Chapters" %}</h4>
+        <ul class="nav-sidebar">
+        {% for obj in object_list %}
+          <li class="nav-sidebar__child">
+            <a class="nav-sidebar__link"
+              href="{{ obj.get_absolute_url }}">
+              {{ obj.title }}
+            </a>
+          </li>
+        {% endfor %}
+        </ul>
+
+        {% static_placeholder "ttip_barometer-chapter_sidebar" %}
+
+      </aside>
+
+      <section class="page__section">
+
+        {% if object.image %}
+          <figure class="figure -full-width">
+            <div class="figure__container">
+
+              <picture>
+                <source
+                  media="(min-width: {{ LESS_VARS.screen_md }})"
+                  srcset="{% thumbnail object.image 940x0 subject_location=object.image.subject_location %}">
+                  <img class="figure__image" src="{% thumbnail object.image 768x0 crop=scale subject_location=object.image.subject_location %}" alt="{{ object.alt }}" />
+              </picture>
+
+            </div>
+          </figure>
         {% endif %}
-      {% endwith %}
 
-    </section>
+        {{ object.body|markdown }}
 
+        {% with next=object.get_next %}
+          {% if next %}
+            <header class="page__section-header -secondary">
+              <h3 class="page__section-headline">
+                <a href="{{ next.get_absolute_url }}">
+                  {% trans "Next chapter" %}
+                </a>
+              </h3>
+            </header>
+
+            {% include "correctiv_ttip_barometer/_chapter_item.html" with object=next %}
+
+          {% endif %}
+        {% endwith %}
+
+      </section>
+    </div>
   </div>
 </div>
 {% endblock barometer_main %}
