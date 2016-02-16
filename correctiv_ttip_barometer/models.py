@@ -17,6 +17,7 @@ class Chapter(models.Model):
         (100, _('The contract is concluded.')),
     )
     title = models.CharField(max_length=255)
+    long_title = models.CharField(max_length=512, default='', blank=True)
     slug = models.SlugField()
     status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES, default=15)
     created = models.DateTimeField(default=timezone.now)

@@ -2,7 +2,7 @@
 
 {% load i18n markdown_deux_tags thumbnail cms_tags %}
 
-{% block title %}{{ object.title }} - {% trans "TTIP – State of Play" %}{% endblock %}
+{% block title %}{{ object.long_title|default:object.title }} - {% trans "TTIP – State of Play" %}{% endblock %}
 
 {% block barometer_main %}
 
@@ -12,7 +12,7 @@
     <div class="page__section-full">
       <h2 class="category-tag">{% trans "TTIP – State of Play" %}</h2>
       <header class="page__section-header -primary">
-        <h3 class="page__section-headline">{{ object.title }}</h3>
+        <h3 class="page__section-headline">{{ object.long_title|default:object.title }}</h3>
       </header>
       <div class="page__teaser">
         <p>{{ object.teaser }}</p>
