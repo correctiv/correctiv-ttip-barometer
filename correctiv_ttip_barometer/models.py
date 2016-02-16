@@ -60,6 +60,6 @@ class Chapter(models.Model):
 
     def get_previous(self):
         try:
-            return Chapter.objects.filter(order__lt=self.order)[0]
+            return Chapter.objects.filter(order__lt=self.order).order_by('-order')[0]
         except IndexError:
             return None
