@@ -13,7 +13,7 @@ class Chapter(models.Model):
         (15, _('No agreement in sight.')),
         (30, _('It\'s complicated.')),
         (60, _('There\'s a first contract draft.')),
-        (75, _('Almost there.')),
+        (75, _('Agreement in sight.')),
         (100, _('The contract is concluded.')),
     )
     title = models.CharField(max_length=255)
