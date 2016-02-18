@@ -36,6 +36,10 @@ class Chapter(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def description(self):
+        return self.teaser
+
     @models.permalink
     def get_absolute_url(self):
         return ('ttip_barometer:ttip-chapter-detail', (), {'slug': self.slug})
