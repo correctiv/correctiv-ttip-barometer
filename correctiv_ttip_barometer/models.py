@@ -6,6 +6,10 @@ from django.utils.encoding import python_2_unicode_compatible
 from filer.fields.image import FilerImageField
 
 
+def document_path(instance, filename):
+    return 'investigations/ttip/leak/chapters/{0}.pdf'.format(instance.slug)
+
+
 @python_2_unicode_compatible
 class Chapter(models.Model):
     STATUS_CHOICES = (
@@ -29,6 +33,8 @@ class Chapter(models.Model):
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
     body = models.TextField(blank=True)
     published = models.BooleanField(default=False)
+
+    document = models.FileField(upload_to=document_path, blank=True, null=True)
 
     class Meta:
         ordering = ('order',)

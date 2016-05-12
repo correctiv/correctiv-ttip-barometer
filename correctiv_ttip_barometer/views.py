@@ -12,3 +12,8 @@ class ChapterDetailView(DetailView):
         publishedObjects = Chapter.objects.filter(published=True)
         context['object_list'] = publishedObjects.exclude(id=self.object.pk)
         return context
+
+
+class ChapterDocumentDetailView(DetailView):
+    template_name = 'correctiv_ttip_barometer/chapter_document.html'
+    queryset = Chapter.objects.filter(published=True, document__isnull=False)

@@ -50,6 +50,16 @@
 
         </div>
 
+        {% if object.document and request.user.is_staff %}
+          <h4>{% trans "Annotated documents" %}</h4>
+          <p>
+            <a href="{% url "ttip_barometer:ttip-chapterdocument-detail" slug=object.slug %}">
+              {% blocktrans %}Find an annotated version of the leaked document for this chapter here.{% endblocktrans %}
+            </a>
+          </p>
+
+        {% endif %}
+
         <h4>{% trans "Other Chapters" %}</h4>
         <ul class="nav-sidebar">
         {% for obj in object_list %}
