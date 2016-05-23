@@ -16,7 +16,22 @@
         <h3 class="page__section-headline">{{ object.long_title|default:object.title }}</h3>
       </header>
       <div class="page__teaser">
-        <p>{% blocktrans with title=object.title %}Below is the leaked TTIP document for the chapter “{{ title }}” annotated by experts.{% endblocktrans %}</p>
+          {% blocktrans with title=object.title %}
+          <p>
+            Below is the draft for the chapter “{{ title }}”, that is now open for annotation.
+            We would like you to explain, criticise but also suggest improvements to the treaty. Please stay brief and precise.
+          </p>
+          <p>
+            This is how it works:
+          </p>
+          <ul>
+            <li>Click the arrow in the top right corner of the document</li>
+            <li>Register your name</li>
+            <li>Select some text and add a comment</li>
+          </ul>
+          <p>Thanks!</p>
+          {% endblocktrans %}
+        </p>
       </div>
     </div>
   </div>
