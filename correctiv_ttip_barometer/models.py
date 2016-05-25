@@ -2,8 +2,11 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import get_language
 
 from filer.fields.image import FilerImageField
+from parler.models import TranslatableModel, TranslatedFields
+from parler.utils.context import switch_language
 
 
 def document_path(instance, filename):
@@ -11,7 +14,7 @@ def document_path(instance, filename):
 
 
 @python_2_unicode_compatible
-class Chapter(models.Model):
+class Chapter(TranslatableModel):
     STATUS_CHOICES = (
         (0, _('Just started.')),
         (15, _('No agreement in sight.')),
@@ -20,21 +23,25 @@ class Chapter(models.Model):
         (75, _('Agreement in sight.')),
         (100, _('The contract is concluded.')),
     )
-    title = models.CharField(max_length=255)
-    long_title = models.CharField(max_length=512, default='', blank=True)
-    slug = models.SlugField()
     status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES, default=15)
     created = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(default=timezone.now)
-    teaser = models.TextField(blank=True)
     image = FilerImageField(blank=True, default=None,
                             null=True, on_delete=models.SET_NULL,
                             verbose_name=_('image'))
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
-    body = models.TextField(blank=True)
+
     published = models.BooleanField(default=False)
 
     document = models.FileField(upload_to=document_path, blank=True, null=True)
+
+    translations = TranslatedFields(
+          title=models.CharField(max_length=255),
+          slug=models.SlugField(),
+          long_title=models.CharField(max_length=512),
+          teaser=models.TextField(blank=True),
+          body=models.TextField(blank=True),
+    )
 
     class Meta:
         ordering = ('order',)
@@ -48,7 +55,8 @@ class Chapter(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('ttip_barometer:ttip-chapter-detail', (), {'slug': self.slug})
+        with switch_language(self, get_language()):
+            return ('ttip_barometer:ttip-chapter-detail', (), {'slug': self.slug})
 
     def get_status_text(self):
         if self.published:
