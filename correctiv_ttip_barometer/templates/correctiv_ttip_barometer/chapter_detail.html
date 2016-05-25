@@ -50,11 +50,11 @@
 
         </div>
 
-        {% if object.document and request.user.is_staff %}
-          <h4>{% trans "Annotated documents" %}</h4>
+        {% if object.document %}
+          <h4>{% trans "openTTIP" %}</h4>
           <p>
             <a href="{% url "ttip_barometer:ttip-chapterdocument-detail" slug=object.slug %}">
-              {% blocktrans %}You can find a commented version of the leaked draft for this chapter here.{% endblocktrans %}
+              {% blocktrans %}Annotate this chpater's draft.{% endblocktrans %}
             </a>
           </p>
 

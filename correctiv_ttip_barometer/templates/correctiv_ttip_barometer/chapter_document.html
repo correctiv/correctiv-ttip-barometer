@@ -18,18 +18,16 @@
       <div class="page__teaser">
           {% blocktrans with title=object.title %}
           <p>
-            Below is the draft for the chapter “{{ title }}”, that is now open for annotation.
-            We would like you to explain, criticise but also suggest improvements to the treaty. Please stay brief and precise.
+            Please find below the draft proposal for “{{ title }}”. You are welcome to annotate – your understanding, criticism or suggestions. We would appreciate to be concise and to the point.
           </p>
           <p>
-            This is how it works:
+            Here is how it works:
           </p>
           <ul>
-            <li>Click the arrow in the top right corner of the document</li>
+            <li>Click on the arrow on the top right-hand side</li>
             <li>Register your name</li>
             <li>Select some text and add a comment</li>
           </ul>
-          <p>Thanks!</p>
           {% endblocktrans %}
         </p>
       </div>
@@ -37,7 +35,7 @@
   </div>
 </div>
 
-<iframe src="https://via.hypothes.is/{{ SITE_URL }}{{ object.document.url }}" width="100%" height="100%" style="height:100vh" seamless="true" frameBorder="0"></iframe>
+<iframe src="https://via.hypothes.is/{{ SITE_URL }}{{ object.document.url }}" width="100%" height="100%" style="height:100vh; margin-bottom: 5em; border: 2px;" seamless="true" frameBorder="1"></iframe>
 
 
 {% endblock %}
