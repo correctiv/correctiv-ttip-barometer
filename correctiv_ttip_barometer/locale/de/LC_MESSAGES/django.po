@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-23 17:21+0200\n"
-"PO-Revision-Date: 2016-05-23 17:23+0100\n"
+"POT-Creation-Date: 2016-05-25 11:07+0200\n"
+"PO-Revision-Date: 2016-05-25 11:07+0100\n"
 "Last-Translator: Stefan Wehrmeyer <stefan.wehrmeyer@okfn.org>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -30,35 +30,35 @@ msgstr "Kapitel-Liste"
 msgid "Chapter List (5 items)"
 msgstr "Kapitel-Liste (5 Einträge)"
 
-#: models.py:16
+#: models.py:17
 msgid "Just started."
 msgstr "Bisher wird nur geredet."
 
-#: models.py:17
+#: models.py:18
 msgid "No agreement in sight."
 msgstr "Keine Einigung in Sicht."
 
-#: models.py:18
+#: models.py:19
 msgid "It's complicated."
 msgstr "Es ist kompliziert."
 
-#: models.py:19
+#: models.py:20
 msgid "There's a first contract draft."
 msgstr "Es gibt erste Textentwürfe."
 
-#: models.py:20
+#: models.py:21
 msgid "Agreement in sight."
 msgstr "Einigung ist in Sicht."
 
-#: models.py:21
+#: models.py:22
 msgid "The contract is concluded."
 msgstr "Der Vertrag ist fertig."
 
-#: models.py:32
+#: models.py:29
 msgid "image"
 msgstr "Bild"
 
-#: models.py:57
+#: models.py:62
 msgid "No barometer yet"
 msgstr "Noch kein Barometer"
 
@@ -73,15 +73,12 @@ msgid "Last update:"
 msgstr "Letzte Aktualisierung:"
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:54
-msgid "Annotated documents"
-msgstr "Annotierte Dokumente"
+msgid "openTTIP"
+msgstr "openTTIP"
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:57
-msgid ""
-"You can find a commented version of the leaked draft for this chapter here."
-msgstr ""
-"Eine kommentierte Fassung des geleakten Entwurfes zu diesem Kapitel findest "
-"Du hier."
+msgid "Annotate this chpater's draft."
+msgstr "Kommentiert den Vertagsentwurf!"
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:63
 msgid "Other Chapters"
@@ -104,29 +101,25 @@ msgstr "TTIP – Annotierte Leaks"
 msgid ""
 "\n"
 "          <p>\n"
-"            Below is the draft for the chapter “%(title)s”, that is now open "
-"for annotation.\n"
-"            We would like you to explain, criticise but also suggest "
-"improvements to the treaty. Please stay brief and precise.\n"
+"            Please find below the draft proposal for “%(title)s”. You are "
+"welcome to annotate – your understanding, criticism or suggestions. We would "
+"appreciate to be concise and to the point.\n"
 "          </p>\n"
 "          <p>\n"
-"            This is how it works:\n"
+"            Here is how it works:\n"
 "          </p>\n"
 "          <ul>\n"
-"            <li>Click the arrow in the top right corner of the document</"
-"li>\n"
+"            <li>Click on the arrow on the top right-hand side</li>\n"
 "            <li>Register your name</li>\n"
 "            <li>Select some text and add a comment</li>\n"
 "          </ul>\n"
-"          <p>Thanks!</p>\n"
 "          "
 msgstr ""
 "\n"
 "          <p>\n"
 "Unten ist der Vertragsentwurf zu dem Kapitel „%(title)s“, der zur "
-"Kommentierung offen ist. Wir freuen uns, wenn Ihr inhaltlich erklärt und "
-"kritisiert, aber auch Vorschläge macht, ob und wie das Abkommen denn besser "
-"werden könnte. Bitte kurz und präzise schreiben.         </p>\n"
+"Kommentierung – inhaltliche Erklärungen, Kritik oder Vorschläge – offen ist. "
+"Bitte kurz und präzise schreiben.</p>\n"
 "          <p>\n"
 "So einfach geht’s:          </p>\n"
 "          <ul>\n"
@@ -134,12 +127,21 @@ msgstr ""
 "            <li>Namen registrieren</li>\n"
 "            <li>Markieren der Textstelle für einen Kommentar</li>\n"
 "          </ul>\n"
-"          <p>Dank Dir!</p>\n"
 "\t"
 
 #: urls.py:8
 msgid "^(?P<slug>[\\w-]+)/documents/$"
 msgstr "^(?P<slug>[\\w-]+)/dokumente/$"
+
+#~ msgid "Annotated documents"
+#~ msgstr "Annotierte Dokumente"
+
+#~ msgid ""
+#~ "You can find a commented version of the leaked draft for this chapter "
+#~ "here."
+#~ msgstr ""
+#~ "Eine kommentierte Fassung des geleakten Entwurfes zu diesem Kapitel "
+#~ "findest Du hier."
 
 #~ msgid ""
 #~ "Below is the leaked TTIP document for the chapter “%(title)s” annotated "
