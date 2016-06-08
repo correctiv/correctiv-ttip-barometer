@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-25 11:07+0200\n"
-"PO-Revision-Date: 2016-05-25 11:07+0100\n"
+"POT-Creation-Date: 2016-06-08 11:31+0200\n"
+"PO-Revision-Date: 2016-06-08 11:32+0100\n"
 "Last-Translator: Stefan Wehrmeyer <stefan.wehrmeyer@okfn.org>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -30,37 +30,41 @@ msgstr "Kapitel-Liste"
 msgid "Chapter List (5 items)"
 msgstr "Kapitel-Liste (5 Einträge)"
 
-#: models.py:17
+#: models.py:22
 msgid "Just started."
 msgstr "Bisher wird nur geredet."
 
-#: models.py:18
+#: models.py:23
 msgid "No agreement in sight."
 msgstr "Keine Einigung in Sicht."
 
-#: models.py:19
+#: models.py:24
 msgid "It's complicated."
 msgstr "Es ist kompliziert."
 
-#: models.py:20
+#: models.py:25
 msgid "There's a first contract draft."
 msgstr "Es gibt erste Textentwürfe."
 
-#: models.py:21
+#: models.py:26
 msgid "Agreement in sight."
 msgstr "Einigung ist in Sicht."
 
-#: models.py:22
+#: models.py:27
 msgid "The contract is concluded."
 msgstr "Der Vertrag ist fertig."
 
-#: models.py:29
+#: models.py:34
 msgid "image"
 msgstr "Bild"
 
-#: models.py:62
+#: models.py:66
 msgid "No barometer yet"
 msgstr "Noch kein Barometer"
+
+#: models.py:103
+msgid "{} of chapter {}"
+msgstr "{} des Kapitels {}"
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:5
 #: templates/correctiv_ttip_barometer/chapter_detail.html:15
@@ -77,14 +81,14 @@ msgid "openTTIP"
 msgstr "openTTIP"
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:57
-msgid "Annotate this chpater's draft."
-msgstr "Kommentiert den Vertagsentwurf!"
+msgid "Annotate this chapter's draft."
+msgstr "Kommentiert den Vertragsentwurf!"
 
-#: templates/correctiv_ttip_barometer/chapter_detail.html:63
+#: templates/correctiv_ttip_barometer/chapter_detail.html:62
 msgid "Other Chapters"
 msgstr "Weitere Kapitel"
 
-#: templates/correctiv_ttip_barometer/chapter_detail.html:105
+#: templates/correctiv_ttip_barometer/chapter_detail.html:104
 msgid "Next chapter"
 msgstr "Nächstes Kapitel"
 
@@ -92,28 +96,28 @@ msgstr "Nächstes Kapitel"
 msgid "Document"
 msgstr "Dokument"
 
-#: templates/correctiv_ttip_barometer/chapter_document.html:14
+#: templates/correctiv_ttip_barometer/chapter_document.html:13
 msgid "TTIP – Annotated Leaks"
 msgstr "TTIP – Annotierte Leaks"
 
-#: templates/correctiv_ttip_barometer/chapter_document.html:19
+#: templates/correctiv_ttip_barometer/chapter_document.html:18
 #, python-format
 msgid ""
 "\n"
-"          <p>\n"
-"            Please find below the draft proposal for “%(title)s”. You are "
+"        <p>\n"
+"          Please find below the draft proposal for “%(title)s”. You are "
 "welcome to annotate – your understanding, criticism or suggestions. We would "
 "appreciate to be concise and to the point.\n"
-"          </p>\n"
-"          <p>\n"
-"            Here is how it works:\n"
-"          </p>\n"
-"          <ul>\n"
-"            <li>Click on the arrow on the top right-hand side</li>\n"
-"            <li>Register your name</li>\n"
-"            <li>Select some text and add a comment</li>\n"
-"          </ul>\n"
-"          "
+"        </p>\n"
+"        <p>\n"
+"          Here is how it works:\n"
+"        </p>\n"
+"        <ul>\n"
+"          <li>Click on the arrow on the top right-hand side</li>\n"
+"          <li>Register your name and your organisation</li>\n"
+"          <li>Select some text and add a comment</li>\n"
+"        </ul>\n"
+"        "
 msgstr ""
 "\n"
 "          <p>\n"
@@ -124,7 +128,7 @@ msgstr ""
 "So einfach geht’s:          </p>\n"
 "          <ul>\n"
 "            <li>Pfeil oben rechts im Dokument anklicken</li>\n"
-"            <li>Namen registrieren</li>\n"
+"            <li>Namen und Organisation registrieren</li>\n"
 "            <li>Markieren der Textstelle für einen Kommentar</li>\n"
 "          </ul>\n"
 "\t"
