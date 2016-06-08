@@ -10,7 +10,10 @@ from parler.utils.context import switch_language
 
 
 def document_path(instance, filename):
-    return 'investigations/ttip/leak/chapters/{0}.pdf'.format(instance.slug)
+    slug = instance.chapter.slug
+    if instance.slug:
+        slug = instance.slug
+    return 'investigations/ttip/leak/chapters/{0}.pdf'.format(slug)
 
 
 @python_2_unicode_compatible
@@ -33,12 +36,10 @@ class Chapter(TranslatableModel):
 
     published = models.BooleanField(default=False)
 
-    document = models.FileField(upload_to=document_path, blank=True, null=True)
-
     translations = TranslatedFields(
           title=models.CharField(max_length=255),
           slug=models.SlugField(),
-          long_title=models.CharField(max_length=512),
+          long_title=models.CharField(blank=True, max_length=512),
           teaser=models.TextField(blank=True),
           body=models.TextField(blank=True),
     )
@@ -81,3 +82,25 @@ class Chapter(TranslatableModel):
             return Chapter.objects.filter(order__lt=self.order).order_by('-order')[0]
         except IndexError:
             return None
+
+
+@python_2_unicode_compatible
+class ChapterDocument(TranslatableModel):
+    chapter = models.ForeignKey(Chapter)
+    document = models.FileField(upload_to=document_path, blank=True, null=True)
+    timestamp = models.DateTimeField(blank=True, null=True)
+
+    translations = TranslatedFields(
+          title=models.CharField(max_length=255, blank=True),
+          slug=models.SlugField(blank=True),
+          description=models.TextField(blank=True)
+    )
+
+    class Meta:
+        ordering = ('timestamp',)
+
+    def __str__(self):
+        return _(u'{} of chapter {}').format(
+            self.safe_translation_getter('title'),
+            self.chapter.safe_translation_getter('title')
+        )

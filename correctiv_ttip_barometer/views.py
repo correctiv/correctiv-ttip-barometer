@@ -18,4 +18,4 @@ class ChapterDetailView(TranslatableSlugMixin, DetailView):
 
 class ChapterDocumentDetailView(TranslatableSlugMixin, DetailView):
     template_name = 'correctiv_ttip_barometer/chapter_document.html'
-    queryset = Chapter.objects.filter(published=True, document__isnull=False)
+    queryset = Chapter.objects.filter(published=True)

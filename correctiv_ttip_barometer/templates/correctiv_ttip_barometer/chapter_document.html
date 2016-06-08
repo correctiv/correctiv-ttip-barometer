@@ -6,36 +6,69 @@
 
 {% block barometer_main %}
 
-<div class="page__container">
-  <div class="page__row">
-    <div class="page__section-full">
-      <header class="page__section-header -primary">
-        <h2 class="page__section-category">
-          <a href="../../">{% trans "TTIP – Annotated Leaks" %}</a>
-        </h2>
-        <h3 class="page__section-headline">{{ object.long_title|default:object.title }}</h3>
-      </header>
-      <div class="page__teaser">
-          {% blocktrans with title=object.title %}
-          <p>
-            Please find below the draft proposal for “{{ title }}”. You are welcome to annotate – your understanding, criticism or suggestions. We would appreciate to be concise and to the point.
-          </p>
-          <p>
-            Here is how it works:
-          </p>
-          <ul>
-            <li>Click on the arrow on the top right-hand side</li>
-            <li>Register your name</li>
-            <li>Select some text and add a comment</li>
-          </ul>
-          {% endblocktrans %}
+<div class="page__row">
+  <div class="page__section-full">
+    <header class="page__section-header -primary">
+      <h2 class="page__section-category">
+        <a href="../">{% trans "TTIP – Annotated Leaks" %}</a>
+      </h2>
+      <h3 class="page__section-headline">{{ object.long_title|default:object.title }}</h3>
+    </header>
+    <div class="page__teaser">
+        {% blocktrans with title=object.title %}
+        <p>
+          Please find below the draft proposal for “{{ title }}”. You are welcome to annotate – your understanding, criticism or suggestions. We would appreciate to be concise and to the point.
         </p>
-      </div>
+        <p>
+          Here is how it works:
+        </p>
+        <ul>
+          <li>Click on the arrow on the top right-hand side</li>
+          <li>Register your name and your organisation</li>
+          <li>Select some text and add a comment</li>
+        </ul>
+        {% endblocktrans %}
+      </p>
     </div>
   </div>
 </div>
+<div class="page__row">
+  <div class="page__section-full">
+    {% with documents=object.chapterdocument_set.all %}
 
-<iframe src="https://via.hypothes.is/{{ SITE_URL }}{{ object.document.url }}" width="100%" height="100%" style="height:100vh; margin-bottom: 5em; border: 1px solid #666;" frameBorder="1"></iframe>
+      {% if documents|length > 1 %}
+        <ul class="nav nav-tabs">
+          {% for document in documents %}
+            <li role="presentation" class="{% if forloop.first %}active{% endif %}">
+              <a href="#{{ document.slug }}" aria-controls="{{ document.slug }}" role="tab" data-toggle="tab">
+                {{ document.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        <!-- Tab panes -->
+       <div class="tab-content">
+      {% endif %}
 
+      {% for document in documents %}
+        {% if documents|length > 1 %}
+          <div role="tabpanel" class="tab-pane {% if forloop.first %}active{% endif %}" id="{{ document.slug }}">
+        {% endif %}
+          {% if document.description %}
+            {{ document.description|markdown }}
+          {% endif %}
+          <iframe src="https://via.hypothes.is/{{ SITE_URL }}{{ document.document.url }}" width="100%" height="100%" style="height:100vh; margin-bottom: 5em; border: 1px solid #666;" frameBorder="1"></iframe>
+        {% if documents|length > 1 %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% if documents|length > 1 %}
+        </div>
+      {% endif %}
+
+    {% endwith %}
+</div>
+</div>
 
 {% endblock %}
