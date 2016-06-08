@@ -53,8 +53,8 @@
         {% if object.document %}
           <h4>{% trans "openTTIP" %}</h4>
           <p>
-            <a href="{% url "ttip_barometer:ttip-chapterdocument-detail" slug=object.slug %}">
-              {% blocktrans %}Annotate this chpater's draft.{% endblocktrans %}
+            <a class="btn btn-primary btn-block btn-lg" href="{% url "ttip_barometer:ttip-chapterdocument-detail" slug=object.slug %}">
+              {% blocktrans %}Annotate this chapter's draft.{% endblocktrans %}
             </a>
           </p>
 
