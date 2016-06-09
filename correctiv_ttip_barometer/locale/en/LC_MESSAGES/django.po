@@ -3,102 +3,101 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-09 17:27+0200\n"
-"PO-Revision-Date: 2016-06-09 17:28+0100\n"
-"Last-Translator: Stefan Wehrmeyer <stefan.wehrmeyer@okfn.org>\n"
-"Language-Team: \n"
-"Language: de\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.5\n"
 
 #: cms_app.py:7 cms_plugins.py:14 cms_plugins.py:31
 msgid "TTIP Barometer"
-msgstr "TTIP-Barometer"
+msgstr ""
 
 #: cms_plugins.py:15
 msgid "Chapter List"
-msgstr "Kapitel-Liste"
+msgstr ""
 
 #: cms_plugins.py:32
 msgid "Chapter List (5 items)"
-msgstr "Kapitel-Liste (5 Einträge)"
+msgstr ""
 
 #: models.py:22
 msgid "Just started."
-msgstr "Bisher wird nur geredet."
+msgstr ""
 
 #: models.py:23
 msgid "No agreement in sight."
-msgstr "Keine Einigung in Sicht."
+msgstr ""
 
 #: models.py:24
 msgid "It's complicated."
-msgstr "Es ist kompliziert."
+msgstr ""
 
 #: models.py:25
 msgid "There's a first contract draft."
-msgstr "Es gibt erste Textentwürfe."
+msgstr ""
 
 #: models.py:26
 msgid "Agreement in sight."
-msgstr "Einigung ist in Sicht."
+msgstr ""
 
 #: models.py:27
 msgid "The contract is concluded."
-msgstr "Der Vertrag ist fertig."
+msgstr ""
 
 #: models.py:34
 msgid "image"
-msgstr "Bild"
+msgstr ""
 
 #: models.py:66
 msgid "No barometer yet"
-msgstr "Noch kein Barometer"
+msgstr ""
 
 #: models.py:103
 msgid "{} of chapter {}"
-msgstr "{} des Kapitels {}"
+msgstr ""
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:5
 #: templates/correctiv_ttip_barometer/chapter_detail.html:15
 #: templates/correctiv_ttip_barometer/chapter_document.html:5
 msgid "TTIP – State of Play"
-msgstr "TTIP-Verhandlungs&shy;barometer"
+msgstr ""
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:45
 msgid "Last update:"
-msgstr "Letzte Aktualisierung:"
+msgstr ""
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:54
 msgid "openTTIP"
-msgstr "openTTIP"
+msgstr ""
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:57
 msgid "Annotate this chapter's draft."
-msgstr "Kommentiert den Vertragsentwurf!"
+msgstr ""
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:62
 msgid "Other Chapters"
-msgstr "Weitere Kapitel"
+msgstr ""
 
 #: templates/correctiv_ttip_barometer/chapter_detail.html:104
 msgid "Next chapter"
-msgstr "Nächstes Kapitel"
+msgstr ""
 
 #: templates/correctiv_ttip_barometer/chapter_document.html:5
 msgid "Document"
-msgstr "Dokument"
+msgstr ""
 
 #: templates/correctiv_ttip_barometer/chapter_document.html:13
 msgid "TTIP – Annotated Leaks"
-msgstr "TTIP – Annotierte Leaks"
+msgstr ""
 
 #: templates/correctiv_ttip_barometer/chapter_document.html:18
 #, python-format
@@ -119,51 +118,11 @@ msgid ""
 "        </ul>\n"
 "        "
 msgstr ""
-"\n"
-"          <p>\n"
-"Unten ist der Vertragsentwurf zu dem Kapitel „%(title)s“, der zur "
-"Kommentierung – inhaltliche Erklärungen, Kritik oder Vorschläge – offen ist. "
-"Bitte kurz und präzise schreiben.</p>\n"
-"          <p>\n"
-"So einfach geht’s:          </p>\n"
-"          <ul>\n"
-"            <li>Pfeil oben rechts im Dokument anklicken</li>\n"
-"            <li>Namen und Organisation registrieren</li>\n"
-"            <li>Markieren der Textstelle für einen Kommentar</li>\n"
-"          </ul>\n"
-"\t"
 
 #: urls.py:8
 msgid "^(?P<slug>[\\w-]+)/documents/$"
-msgstr "^(?P<slug>[\\w-]+)/dokumente/$"
+msgstr ""
 
 #: urls.py:9
-#| msgid "^(?P<slug>[\\w-]+)/documents/$"
 msgid "^(?P<slug>[\\w-]+)/documents/(?P<document_id>\\d+)/$"
-msgstr "^(?P<slug>[\\w-]+)/dokumente/(?P<document_id>\\d+)/$"
-
-#~ msgid "Annotated documents"
-#~ msgstr "Annotierte Dokumente"
-
-#~ msgid ""
-#~ "You can find a commented version of the leaked draft for this chapter "
-#~ "here."
-#~ msgstr ""
-#~ "Eine kommentierte Fassung des geleakten Entwurfes zu diesem Kapitel "
-#~ "findest Du hier."
-
-#~ msgid ""
-#~ "Below is the leaked TTIP document for the chapter “%(title)s” annotated "
-#~ "by experts."
-#~ msgstr ""
-#~ "Unten ist das geleakte TTIP-Dokumente zum Kapitel „%(title)s“ annotiert "
-#~ "von Experten."
-
-#~ msgid "Almost there."
-#~ msgstr "Sind fast durch."
-
-#~ msgid "« Previous chapter “%(title)s”"
-#~ msgstr "« Vorheriges Kapitel „%(title)s“"
-
-#~ msgid "Next chapter “%(title)s” »"
-#~ msgstr "Nächstes Kapitel „%(title)s“ »"
+msgstr ""
