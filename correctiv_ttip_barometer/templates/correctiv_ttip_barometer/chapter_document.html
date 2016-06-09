@@ -32,43 +32,30 @@
     </div>
   </div>
 </div>
-<div class="page__row">
-  <div class="page__section-full">
-    {% with documents=object.chapterdocument_set.all %}
 
+{% if document %}
+  <div class="page__row">
+    <div class="page__section-full">
       {% if documents|length > 1 %}
         <ul class="nav nav-tabs">
-          {% for document in documents %}
-            <li role="presentation" class="{% if forloop.first %}active{% endif %}">
-              <a href="#{{ document.slug }}" aria-controls="{{ document.slug }}" role="tab" data-toggle="tab">
-                {{ document.title }}
+          {% for doc in documents %}
+            <li role="presentation" class="{% if doc == document %}active{% endif %}">
+              <a href="{% url 'ttip_barometer:ttip-chapterdocument-detail_doc' slug=object.slug document_id=doc.id %}">
+                {{ doc.title }}
               </a>
             </li>
           {% endfor %}
         </ul>
-        <!-- Tab panes -->
-       <div class="tab-content">
       {% endif %}
 
-      {% for document in documents %}
-        {% if documents|length > 1 %}
-          <div role="tabpanel" class="tab-pane {% if forloop.first %}active{% endif %}" id="{{ document.slug }}">
-        {% endif %}
-          {% if document.description %}
-            {{ document.description|markdown }}
-          {% endif %}
-          <iframe src="https://via.hypothes.is/{{ SITE_URL }}{{ document.document.url }}" width="100%" height="100%" style="height:100vh; margin-bottom: 5em; border: 1px solid #666;" frameBorder="1"></iframe>
-        {% if documents|length > 1 %}
-          </div>
-        {% endif %}
-      {% endfor %}
-
-      {% if documents|length > 1 %}
-        </div>
+      {% if document.description %}
+        {{ document.description|markdown }}
       {% endif %}
 
-    {% endwith %}
-</div>
-</div>
+      <iframe src="https://via.hypothes.is/{{ SITE_URL }}{{ document.document.url }}" width="100%" height="100%" style="height:100vh; margin-bottom: 5em; border: 1px solid #666;" frameBorder="1"></iframe>
 
+
+    </div>
+  </div>
+{% endif %}
 {% endblock %}

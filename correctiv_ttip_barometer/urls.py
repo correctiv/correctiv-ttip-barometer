@@ -6,4 +6,5 @@ from .views import ChapterDetailView, ChapterDocumentDetailView
 urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/$', ChapterDetailView.as_view(), name='ttip-chapter-detail'),
     url(_(r'^(?P<slug>[\w-]+)/documents/$'), ChapterDocumentDetailView.as_view(), name='ttip-chapterdocument-detail'),
+    url(_(r'^(?P<slug>[\w-]+)/documents/(?P<document_id>\d+)/$'), ChapterDocumentDetailView.as_view(), name='ttip-chapterdocument-detail_doc'),
 ]
